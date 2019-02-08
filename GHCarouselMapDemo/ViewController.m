@@ -28,7 +28,7 @@
         [self.carouselMap0 reloadData];
     }];
     
-    GHCarouselMap *carouselMap = [[GHCarouselMap alloc]initWithFrame:CGRectMake(0, 88, [UIScreen mainScreen].bounds.size.width, 44)];
+    GHCarouselMap *carouselMap = [[GHCarouselMap alloc]initWithFrame:CGRectMake(0, 88, [UIScreen mainScreen].bounds.size.width, 80)];
     carouselMap.scrollDirection = GHCarouselMapScrollDirectionVertical;
     carouselMap.dataSource = self;
     carouselMap.dalegate = self;
@@ -51,11 +51,19 @@
 - (UIView *)carouselMap:(GHCarouselMap *)carouselMap cellAtIndex:(NSInteger)index {
     
     if (carouselMap.tag == 0) {
-        UILabel *label = [[UILabel alloc]init];
-        label.textColor = [UIColor blackColor];
-        label.text = [NSString stringWithFormat:@" ★ 第%ld张图片",(long)index];
+        UIView *view = [[UIView alloc]init];
+        view.backgroundColor = [UIColor whiteColor];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 200, 40)];
+        [view addSubview: label];
+        label.textColor = [UIColor darkGrayColor];
+        label.text = [NSString stringWithFormat:@" ★ 第%ld张图片我是标题啊",(long)index];
         
-        return label;
+        UILabel *details = [[UILabel alloc]initWithFrame:CGRectMake(10, 50, 200, 40)];
+        [view addSubview: details];
+        details.text = @"我是详情";
+
+        details.textColor = [UIColor lightGrayColor];
+        return view;
     } else {
         UIImageView *imageView = [[UIImageView alloc]init];
         if (self.imagesArray.count > index) {
