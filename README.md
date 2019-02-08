@@ -30,13 +30,14 @@
   /// 返回轮播当前被点击的index
   - (void)carouselMap: (GHCarouselMap *) carouselMap didSelectRowAtIndex:(NSInteger)index 
 
- ```
+  ```
  
-`- (void)reloadData` 提供对象方法
+`- (void)reloadData` 外部提供对象方法
  
 
 
 ![Untitled.gif](https://upload-images.jianshu.io/upload_images/1419035-a90a88a311d64564.gif?imageMogr2/auto-orient/strip)
+
 
 ---
 
