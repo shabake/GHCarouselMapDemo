@@ -1,3 +1,9 @@
+![](https://img.shields.io/badge/platform-iOS-red.svg) ![](https://img.shields.io/badge/language-Objective--C-orange.svg) 
+![](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg) 
+![](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg)
+![](https://img.shields.io/vscode-marketplace/d/repo.svg)
+![](https://img.shields.io/cocoapods/l/packageName.svg)
+
 # GHCarouselMapDemo
 `超简单无限轮播图组件` `轮播组件` `无限图片轮播` `无限文字轮播`
 
@@ -32,7 +38,8 @@
 
   ```
  
-`- (void)reloadData` 外部提供对象方法
+`- (void)reloadData` 外部提供对象方法,下载图片完成后刷新轮播图
+ 
  
 
 
