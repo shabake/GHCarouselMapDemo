@@ -68,6 +68,18 @@
         details.text = @"我是详情";
 
         details.textColor = [UIColor orangeColor];
+        
+        UIButton *button = [[UIButton alloc]init];
+        button.backgroundColor = [UIColor redColor];
+        [button setTitle:@"预定" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont systemFontOfSize:13];
+        button.layer.masksToBounds = YES;
+        button.layer.cornerRadius = 5;
+
+        button.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 60 -30, (80 - 21 ) *0.5, 60, 21);
+        [view addSubview: button];
+
         return view;
     } else {
         UIImageView *imageView = [[UIImageView alloc]init];
