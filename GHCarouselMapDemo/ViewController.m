@@ -44,7 +44,7 @@
     carouselMap0.dalegate = self;
     carouselMap0.tag = 1;
     self.carouselMap0 = carouselMap0;
-    [self.view addSubview:carouselMap0];
+//    [self.view addSubview:carouselMap0];
 }
 
 - (NSInteger)countOfCellForCarouselMap:(GHCarouselMap *)carouselMap {
