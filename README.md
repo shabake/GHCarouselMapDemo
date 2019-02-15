@@ -41,10 +41,7 @@
 `- (void)reloadData` 外部提供对象方法,下载图片完成后刷新轮播图
  
  
-
-
-![Untitled.gif](https://upload-images.jianshu.io/upload_images/1419035-a90a88a311d64564.gif?imageMogr2/auto-orient/strip)
-
+![Untitled.gif](https://upload-images.jianshu.io/upload_images/1419035-cd995fcf1da1d1b1.gif?imageMogr2/auto-orient/strip)
 
 ---
 
