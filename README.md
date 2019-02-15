@@ -12,7 +12,7 @@
 
 使用方法
 
-* `GHCarouselMap`拖到项目内,在要使用的控制器包含```#import "GHCarouselMap.h"`
+* `GHCarouselMap`拖到项目内,在要使用的控制器包含```#import "GHCarouselMap.h"```
 
 
 * 遵守协议`GHCarouselMapDelegate` `GHCarouselMapDataSource`
