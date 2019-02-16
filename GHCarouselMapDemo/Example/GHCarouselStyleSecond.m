@@ -25,7 +25,10 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self addSubview:self.carouselMap];
+    for (UIView *view in self.contentView.subviews) {
+        [view removeFromSuperview];
+    }
+    [self.contentView addSubview:self.carouselMap];
     self.carouselMap.frame = CGRectMake(10, 10, self.bounds.size.width - 20, self.bounds.size.height - 20);
 }
 
