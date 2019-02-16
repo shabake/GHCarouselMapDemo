@@ -26,7 +26,7 @@
     self.navigationItem.title = @"轮播组件";
     if (@available(iOS 11.0, *)) {
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
-    }else {
+    } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];

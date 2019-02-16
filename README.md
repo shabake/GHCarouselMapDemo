@@ -45,7 +45,7 @@
  
  ***录制gif存在丢帧现象请以真机调试效果为主***
  
-![Untitled.gif](https://upload-images.jianshu.io/upload_images/1419035-82fc1c2bbb836689.gif?imageMogr2/auto-orient/strip)
+![Untitled.gif](https://upload-images.jianshu.io/upload_images/1419035-4d5878282b4d9532.gif?imageMogr2/auto-orient/strip)
 
 ---
 
