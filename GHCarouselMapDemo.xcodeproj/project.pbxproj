@@ -16,6 +16,8 @@
 		D6D5E9C0220D6CDE00AD4CDA /* GHCarouselMap.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E9BD220D6CDE00AD4CDA /* GHCarouselMap.m */; };
 		D6D5E9C1220D6CDE00AD4CDA /* GHLoadImagesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E9BE220D6CDE00AD4CDA /* GHLoadImagesHelper.m */; };
 		D6D5E9FD221659D200AD4CDA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D6D5E9FC221659D200AD4CDA /* README.md */; };
+		D6FDF35B2217EB6800219799 /* GHCarouselStyleFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FDF35A2217EB6800219799 /* GHCarouselStyleFirst.m */; };
+		D6FDF35E2217ED6900219799 /* GHCarouselStyleSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FDF35D2217ED6900219799 /* GHCarouselStyleSecond.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,10 @@
 		D6D5E9BE220D6CDE00AD4CDA /* GHLoadImagesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHLoadImagesHelper.m; sourceTree = "<group>"; };
 		D6D5E9BF220D6CDE00AD4CDA /* GHCarouselMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHCarouselMap.h; sourceTree = "<group>"; };
 		D6D5E9FC221659D200AD4CDA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		D6FDF3592217EB6800219799 /* GHCarouselStyleFirst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHCarouselStyleFirst.h; sourceTree = "<group>"; };
+		D6FDF35A2217EB6800219799 /* GHCarouselStyleFirst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHCarouselStyleFirst.m; sourceTree = "<group>"; };
+		D6FDF35C2217ED6900219799 /* GHCarouselStyleSecond.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHCarouselStyleSecond.h; sourceTree = "<group>"; };
+		D6FDF35D2217ED6900219799 /* GHCarouselStyleSecond.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHCarouselStyleSecond.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 		D6D5E9A4220D6CC200AD4CDA /* GHCarouselMapDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D6FDF3582217E96400219799 /* Example */,
 				D6D5E9A5220D6CC300AD4CDA /* AppDelegate.h */,
 				D6D5E9A6220D6CC300AD4CDA /* AppDelegate.m */,
 				D6D5E9A8220D6CC300AD4CDA /* ViewController.h */,
@@ -85,11 +92,22 @@
 			children = (
 				D6D5E9FC221659D200AD4CDA /* README.md */,
 				D6D5E9BC220D6CDE00AD4CDA /* GHLoadImagesHelper.h */,
-				D6D5E9BD220D6CDE00AD4CDA /* GHCarouselMap.m */,
 				D6D5E9BE220D6CDE00AD4CDA /* GHLoadImagesHelper.m */,
 				D6D5E9BF220D6CDE00AD4CDA /* GHCarouselMap.h */,
+				D6D5E9BD220D6CDE00AD4CDA /* GHCarouselMap.m */,
 			);
 			path = GHCarouselMap;
+			sourceTree = "<group>";
+		};
+		D6FDF3582217E96400219799 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				D6FDF3592217EB6800219799 /* GHCarouselStyleFirst.h */,
+				D6FDF35A2217EB6800219799 /* GHCarouselStyleFirst.m */,
+				D6FDF35C2217ED6900219799 /* GHCarouselStyleSecond.h */,
+				D6FDF35D2217ED6900219799 /* GHCarouselStyleSecond.m */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,9 +183,11 @@
 			files = (
 				D6D5E9C1220D6CDE00AD4CDA /* GHLoadImagesHelper.m in Sources */,
 				D6D5E9AA220D6CC300AD4CDA /* ViewController.m in Sources */,
+				D6FDF35E2217ED6900219799 /* GHCarouselStyleSecond.m in Sources */,
 				D6D5E9C0220D6CDE00AD4CDA /* GHCarouselMap.m in Sources */,
 				D6D5E9B5220D6CC400AD4CDA /* main.m in Sources */,
 				D6D5E9A7220D6CC300AD4CDA /* AppDelegate.m in Sources */,
+				D6FDF35B2217EB6800219799 /* GHCarouselStyleFirst.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

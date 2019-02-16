@@ -9,8 +9,11 @@
 #import "ViewController.h"
 #import "GHCarouselMap.h"
 #import "GHLoadImagesHelper.h"
+#import "GHCarouselStyleFirst.h"
+#import "GHCarouselStyleSecond.h"
 
-@interface ViewController ()<GHCarouselMapDelegate,GHCarouselMapDataSource>
+@interface ViewController ()<GHCarouselMapDelegate,GHCarouselMapDataSource,UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic , strong) UITableView *tableView;
 @property (nonatomic , strong) NSArray *images;
 @property (nonatomic , strong) NSArray *imagesArray;
 @property (nonatomic , strong) GHCarouselMap *carouselMap0;
@@ -20,80 +23,71 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (@available(iOS 11.0, *)) {
+        [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+    }else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    self.images = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549621373192&di=e291e4c71c2cc34fc165dafb48db20a8&imgtype=0&src=http%3A%2F%2Fimg0.ph.126.net%2FtvpBly3va7alxcVrVh29Bg%3D%3D%2F6631447097213070177.jpg",
-                    @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549621373192&di=861cce907a3e42a258efa544328ce61f&imgtype=0&src=http%3A%2F%2Fpic.rmb.bdstatic.com%2F3355f30ddd96c669bc481818e9de4b59.jpeg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549621373192&di=9d3636bb9c72f5a592bc0bced1793258&imgtype=0&src=http%3A%2F%2Fp0.ifengimg.com%2Fpmop%2F2018%2F1105%2F915E16EFDA9722408C74080605A41985CEF19FED_size4183_w2688_h4032.jpeg",@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549621373192&di=9f18bb398181bc1d537e46703a27cb1a&imgtype=0&src=http%3A%2F%2Fdingyue.nosdn.127.net%2FdOQah9WP3IDJbRcWxG9mEOFcbuA2ZXwa7j7n4lojUJqbd1535169668843compressflag.jpg"];
-    
-    [[GHLoadImagesHelper  sharedManager] loadImagesWithArray:self.images actionBlock:^(NSArray * _Nonnull imagesArray) {
-        self.imagesArray = imagesArray;
-        [self.carouselMap0 reloadData];
-    }];
-    
-    GHCarouselMap *carouselMap = [[GHCarouselMap alloc]initWithFrame:CGRectMake(10, 88, [UIScreen mainScreen].bounds.size.width - 20, 80)];
-    carouselMap.layer.masksToBounds = YES;
-    carouselMap.layer.cornerRadius = 10;
-    carouselMap.scrollDirection = GHCarouselMapScrollDirectionVertical;
-    carouselMap.dataSource = self;
-    carouselMap.dalegate = self;
-    carouselMap.tag = 0;
-    [self.view addSubview:carouselMap];
-    
-    GHCarouselMap *carouselMap0 = [[GHCarouselMap alloc]initWithFrame:CGRectMake(0, 200, [UIScreen mainScreen].bounds.size.width, 400)];
-    carouselMap0.scrollDirection = GHCarouselMapScrollDirectionHorizontal;
-    carouselMap0.dataSource = self;
-    carouselMap0.dalegate = self;
-    carouselMap0.tag = 1;
-    self.carouselMap0 = carouselMap0;
-//    [self.view addSubview:carouselMap0];
+    self.view = self.tableView;
 }
 
-- (NSInteger)countOfCellForCarouselMap:(GHCarouselMap *)carouselMap {
-    return 4;
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UILabel *label = [[UILabel alloc]init];
+    label.textAlignment = NSTextAlignmentCenter;
+
+    if (section == 0) {
+        label.text = @"样式一";
+    } else if (section == 1) {
+        label.text = @"样式二";
+    }
+    return label;
 }
 
-- (UIView *)carouselMap:(GHCarouselMap *)carouselMap cellAtIndex:(NSInteger)index {
-    
-    if (carouselMap.tag == 0) {
-        UIView *view = [[UIView alloc]init];
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 60;
+}
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
 
-        view.backgroundColor = [UIColor whiteColor];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 10, 200, 40)];
-        [view addSubview: label];
-        label.textColor = [UIColor darkGrayColor];
-        label.text = [NSString stringWithFormat:@" ★ 第%ld张图片我是标题啊",(long)index];
-        
-        UILabel *details = [[UILabel alloc]initWithFrame:CGRectMake(20, 40, 200, 40)];
-        [view addSubview: details];
-        details.text = @"我是详情";
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
 
-        details.textColor = [UIColor orangeColor];
-        
-        UIButton *button = [[UIButton alloc]init];
-        button.backgroundColor = [UIColor redColor];
-        [button setTitle:@"预定" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:13];
-        button.layer.masksToBounds = YES;
-        button.layer.cornerRadius = 5;
-
-        button.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 60 -30, (80 - 21 ) *0.5, 60, 21);
-        [view addSubview: button];
-
-        return view;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        GHCarouselStyleFirst *cell = [tableView dequeueReusableCellWithIdentifier:@"GHCarouselStyleFirstID"];
+        return cell;
+    } else if (indexPath.section == 1) {
+        GHCarouselStyleSecond *cell = [tableView dequeueReusableCellWithIdentifier:@"GHCarouselStyleSecondID"];
+        return cell;
     } else {
-        UIImageView *imageView = [[UIImageView alloc]init];
-        if (self.imagesArray.count > index) {
-            imageView.image = self.imagesArray[index];
-        } else {
-            return nil;
-        }
-        return imageView;
+        return [UITableViewCell new];
+    }
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 400;
+    } else if (indexPath.section == 1) {
+        return 100;
+    } else {
+        return 0.01;
     }
 }
 
-- (void)carouselMap: (GHCarouselMap *) carouselMap didSelectRowAtIndex:(NSInteger)index {
-    NSLog(@"被点击");
+- (UITableView *)tableView {
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerClass:[GHCarouselStyleFirst class] forCellReuseIdentifier:@"GHCarouselStyleFirstID"];
+        [_tableView registerClass:[GHCarouselStyleSecond class] forCellReuseIdentifier:@"GHCarouselStyleSecondID"];
+        _tableView.tableFooterView = [UIView new];
+    }
+    return _tableView;
 }
-
 @end
